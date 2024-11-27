@@ -59,7 +59,6 @@ function App() {
     if (cardNumber && isValid !== null) {
       const newCard = {
         number: cardNumber.slice(-4), // Store only the last 4 digits
-        valid: isValid ? "VALID" : "NOT VALID",
         validStatus: isValid ? "valid" : "invalid",
       };
 
@@ -109,7 +108,7 @@ function App() {
       <ul className="verified-list">
         {verifiedCards.map((card, index) => (
           <li key={index} className={card.validStatus}>
-            **** **** **** {card.number} - {card.valid}
+            **** **** **** {card.number}
           </li>
         ))}
       </ul>
