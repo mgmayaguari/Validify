@@ -6,7 +6,11 @@ function App() {
   const [isValid, setIsValid] = useState(null);
   const [verifiedCards, setVerifiedCards] = useState([]);
 
-  // Luhn algorithm to check credit card validity
+  /**
+   * Verifies if a given card number is valid using the Luhn Algorithm.
+   * @param {string} number - The credit card number to verify.
+   * @returns {boolean} - True if the card is valid, otherwise false.
+   */
   const verifyCardNumber = (number) => {
     let sum = 0;
     let shouldDouble = false;
@@ -25,7 +29,10 @@ function App() {
     return sum % 10 === 0;
   };
 
-  // Handle changes in input and validate only numbers with 15-16 digits
+  /**
+   * Handles the card number input, restricting it to numeric values and a maximum of 16 characters.
+   * @param {object} e - The input change event.
+   */
   const handleInputChange = (e) => {
     const value = e.target.value;
     if (/^\d{0,16}$/.test(value)) {
@@ -33,7 +40,9 @@ function App() {
     }
   };
 
-  // Check if the card number is valid
+  /**
+   * Validates the current card number and updates the validity status.
+   */
   const handleVerify = () => {
     if (cardNumber.length !== 15 && cardNumber.length !== 16) {
       alert("Credit card number must be 15 or 16 digits.");
@@ -43,15 +52,20 @@ function App() {
     setIsValid(isCardValid);
   };
 
+  /**
+   * Adds the verified card to the list and resets the form for a new entry.
+   */
   const handleRestart = () => {
-    setVerifiedCards([
-      ...verifiedCards,
-      {
+    if (cardNumber && isValid !== null) {
+      const newCard = {
         number: cardNumber.slice(-4), // Store only the last 4 digits
         valid: isValid ? "VALID" : "NOT VALID",
         validStatus: isValid ? "valid" : "invalid",
-      },
-    ]);
+      };
+
+      // Update the list to show only the last 5 cards
+      setVerifiedCards([newCard, ...verifiedCards.slice(0, 4)]);
+    }
     setCardNumber("");
     setIsValid(null);
   };
@@ -64,21 +78,23 @@ function App() {
         <p className="App-subtitle">Credit Card Validator</p>
       </header>
 
-      {/* Input for credit card number */}
-      <input
-        type="text"
-        placeholder="Enter credit card number"
-        value={cardNumber}
-        onChange={handleInputChange}
-        maxLength="16"
-      />
+      <div className="form-container">
+        {/* Input for credit card number */}
+        <input
+          type="text"
+          placeholder="Enter credit card number"
+          value={cardNumber}
+          onChange={handleInputChange}
+          maxLength="16"
+        />
 
-      {/* Verify button */}
-      <button onClick={handleVerify}>Verify</button>
+        {/* Verify button */}
+        <button onClick={handleVerify}>Verify</button>
+      </div>
 
       {/* Display verification result */}
       {isValid !== null && (
-        <p>
+        <p className={`result-message ${isValid ? "valid" : "invalid"}`}>
           This credit card is {isValid ? "VALID" : "NOT VALID"}.
         </p>
       )}
@@ -90,9 +106,9 @@ function App() {
 
       {/* List of verified cards */}
       <h2>Verified Cards</h2>
-      <ul>
+      <ul className="verified-list">
         {verifiedCards.map((card, index) => (
-          <li key={index}>
+          <li key={index} className={card.validStatus}>
             **** **** **** {card.number} - {card.valid}
           </li>
         ))}

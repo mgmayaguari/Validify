@@ -26,12 +26,33 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-  font-size: 24px;
+/* Header and Title Styles */
+.App-header {
+  background-color: #2d3a45; /* Primary color */
+  padding: 20px;
   text-align: center;
-  margin-bottom: 20px;
-  font-weight: 600;
-  letter-spacing: 1px;
+  border-bottom: 3px solid #a68a64; /* Accent color for separation */
+}
+
+.App-title {
+  font-size: 3rem; /* Large font size for visibility */
+  color: #a68a64;
+  margin: 0;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.App-subtitle {
+  font-size: 1.2rem;
+  color: #a68a64;
+  margin: 5px 0 0 0;
+  font-style: italic;
+  opacity: 0.9;
+}
+/* Form and Button Styles */
+.form-container {
+  margin: 20px auto;
+  text-align: center;
 }
 
 input {
@@ -72,84 +93,83 @@ button:active {
   background-color: #6f5b3a; /* Even darker on click */
 }
 
+/* Validation Message Styles */
+.result-message {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.result-message.valid {
+  color: #28a745; /* Green for valid */
+}
+
+.result-message.invalid {
+  color: #dc3545; /* Red for not valid */
+}
+
+/* Verified Cards List */
+.verified-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px auto;
+  max-width: 400px;
+}
+
+.verified-list li {
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+.verified-list .valid {
+  background-color: #28a745; /* Green */
+}
+
+.verified-list .invalid {
+  background-color: #dc3545; /* Red */
+}
+
+/* General */
+h1 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+h2 {
+  color: #A68A64;
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
 p {
   text-align: center;
   font-size: 18px;
   margin: 10px 0;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin-top: 20px;
-}
-
-li {
-  background-color: #fff;
-  color: #2d3a45;
-  font-size: 16px;
-  padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-li.valid {
-  border-left: 5px solid green; /* Valid status indicator */
-}
-
-li.invalid {
-  border-left: 5px solid red; /* Invalid status indicator */
-}
-
 li span {
   font-weight: bold;
-}
-
-h2 {
-  color: #A68A64; /* Accent color */
-  font-size: 20px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-/* Header and Title Styles */
-.App-header {
-  background-color: #2d3a45; /* Primary color */
-  padding: 20px;
-  text-align: center;
-  border-bottom: 3px solid #a68a64; /* Accent color for separation */
-}
-
-.App-title {
-  font-size: 3rem; /* Large font size for visibility */
-  color: #a68a64; /* Gold accent for luxury */
-  margin: 0;
-  font-weight: bold;
-  letter-spacing: 2px; /* Spaced-out letters for elegance */
-}
-
-.App-subtitle {
-  font-size: 1.2rem;
-  color: #a68a64;
-  margin: 5px 0 0 0;
-  font-style: italic;
-  opacity: 0.9;
 }
 
 /* Footer styles */
 .Footer {
   margin-top: 30px;
   font-size: 14px;
-  color: #a68a64; /* Accent color */
+  color: #a68a64;
   text-align: center;
   opacity: 0.8;
 }
 
 .Footer a {
-  color: #a68a64; /* Accent color */
+  color: #a68a64;
   text-decoration: none;
   font-weight: bold;
 }
