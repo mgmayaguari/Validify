@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { useState } from "react";
 
@@ -44,7 +43,11 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Credit Card Verifier</h1>
+      {/* Title Section */}
+      <header className="App-header">
+        <h1 className="App-title">Validify</h1>
+        <p className="App-subtitle">Credit Card Validator</p>
+      </header>
 
       {/* Input for credit card number */}
       <input

@@ -115,6 +115,30 @@ h2 {
   text-align: center;
 }
 
+/* Header and Title Styles */
+.App-header {
+  background-color: #2d3a45; /* Primary color */
+  padding: 20px;
+  text-align: center;
+  border-bottom: 3px solid #a68a64; /* Accent color for separation */
+}
+
+.App-title {
+  font-size: 3rem; /* Large font size for visibility */
+  color: #a68a64; /* Gold accent for luxury */
+  margin: 0;
+  font-weight: bold;
+  letter-spacing: 2px; /* Spaced-out letters for elegance */
+}
+
+.App-subtitle {
+  font-size: 1.2rem;
+  color: #a68a64;
+  margin: 5px 0 0 0;
+  font-style: italic;
+  opacity: 0.9;
+}
+
 /* Footer styles */
 .Footer {
   margin-top: 30px;
