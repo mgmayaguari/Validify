@@ -97,11 +97,11 @@ li {
 }
 
 li.valid {
-  border-left: 5px solid green;
+  border-left: 5px solid green; /* Valid status indicator */
 }
 
 li.invalid {
-  border-left: 5px solid red;
+  border-left: 5px solid red; /* Invalid status indicator */
 }
 
 li span {
@@ -113,6 +113,26 @@ h2 {
   font-size: 20px;
   margin-bottom: 10px;
   text-align: center;
+}
+
+/* Footer styles */
+.Footer {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #a68a64; /* Accent color */
+  text-align: center;
+  opacity: 0.8;
+}
+
+.Footer a {
+  color: #a68a64; /* Accent color */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.Footer a:hover {
+  text-decoration: underline;
+  opacity: 1;
 }
 
 @media (max-width: 480px) {

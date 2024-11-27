@@ -78,6 +78,12 @@ function App() {
           </li>
         ))}
       </ul>
+
+      {/* Footer */}
+      <footer className="Footer">
+        Created by
+        <a href="https://mgmayaguari.github.io/" target="_blank" rel="noopener noreferrer"> MGML</a>
+      </footer>
     </div>
   );
 }
