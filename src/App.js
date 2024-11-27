@@ -10,6 +10,7 @@ function App() {
   const verifyCardNumber = (number) => {
     let sum = 0;
     let shouldDouble = false;
+
     // Start from the end and process every digit
     for (let i = number.length - 1; i >= 0; i--) {
       let digit = parseInt(number[i]);
@@ -24,7 +25,20 @@ function App() {
     return sum % 10 === 0;
   };
 
+  // Handle changes in input and validate only numbers with 15-16 digits
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    if (/^\d{0,16}$/.test(value)) {
+      setCardNumber(value);
+    }
+  };
+
+  // Check if the card number is valid
   const handleVerify = () => {
+    if (cardNumber.length !== 15 && cardNumber.length !== 16) {
+      alert("Credit card number must be 15 or 16 digits.");
+      return
+    }
     const isCardValid = verifyCardNumber(cardNumber);
     setIsValid(isCardValid);
   };
@@ -35,6 +49,7 @@ function App() {
       {
         number: cardNumber.slice(-4), // Store only the last 4 digits
         valid: isValid ? "VALID" : "NOT VALID",
+        validStatus: isValid ? "valid" : "invalid",
       },
     ]);
     setCardNumber("");
@@ -54,11 +69,12 @@ function App() {
         type="text"
         placeholder="Enter credit card number"
         value={cardNumber}
-        onChange={(e) => setCardNumber(e.target.value)}
+        onChange={handleInputChange}
+        maxLength="16"
       />
 
       {/* Verify button */}
-      <button onClick={handleVerify}>Verify CC</button>
+      <button onClick={handleVerify}>Verify</button>
 
       {/* Display verification result */}
       {isValid !== null && (
